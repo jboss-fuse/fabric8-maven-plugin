@@ -88,6 +88,9 @@ public class ImageStreamServiceTest {
         assertEquals("ImageStream", isRead.get("kind"));
         Map spec = (Map<String, Object>) isRead.get("spec");
         assertNotNull(spec);
+        Map lookupPolicy = (Map<String, Object>) spec.get("lookupPolicy");
+        assertNotNull(lookupPolicy);
+        assertTrue((Boolean) lookupPolicy.get("local"));
         List tags = (List) spec.get("tags");
         assertNotNull(tags);
         assertEquals(1,tags.size());
