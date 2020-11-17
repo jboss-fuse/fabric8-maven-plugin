@@ -86,6 +86,7 @@ public class ImageStreamService {
                     .endMetadata()
 
                     .withNewSpec()
+                    .withNewLookupPolicy(true)
                     .addNewTag()
                       .withName(tag)
                       .withNewFrom().withKind("ImageStreamImage").endFrom()
